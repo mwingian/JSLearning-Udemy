@@ -20,7 +20,7 @@ const personalMovieDB = {
 };
 
 for (let i = 0; i < 2; i++) {
-  let a = prompt("Один из последних просмотренных фильмов?", ""),
+  let a = prompt("Один из последних просмотренных фильмов?", "").trim(),
     b = +prompt("На сколько оцените его?", "");
   if (a != null && b != null && a != "" && b != "" && a.length < 50) {
     personalMovieDB.movies[a] = b;
@@ -37,6 +37,56 @@ function showMyDB() {
     console.log("Data base is privat!");
   }
 }
+
+const obj = {
+  name: "Serhii",
+  surname: "Zasiienko",
+  age: 29,
+  isMarried: false,
+  skills: {
+    programming: "Low",
+    languages: ["Js"]
+  }
+}
+
+let a = 10;
+let b = 5;
+
+const calculus = {
+  summ:
+    function (a, b) {
+      return a + b;
+    },
+  decr: function (a, b) {
+      return a - b;
+    }
+}
+
+console.log(calculus.decr(a,b));
+
+// delete obj.skills.languages;
+
+let count = 0;
+let subCount = 0;
+
+
+for (let property in obj) {
+  if (typeof(obj[property]) === 'object') {
+    for (let subProperty in obj[property]) {
+      console.log(`Свойство ${subProperty} имеет значение ${obj[property] [subProperty]}`);
+    }
+    subCount++;
+  } else {
+    console.log(`Свойство ${property} имеет значение ${obj[property]}`);
+    count++;
+  }
+}
+
+console.log(count, subCount);
+
+// obj.skills.languages.push("HTML"); 
+
+console.log(obj);
 
 // function writeYourGenres() {
 //   for (let i = 1; i <= 3; i++) {
@@ -60,12 +110,26 @@ function showMyDB() {
 
 function writeYourGenres() {
   for (let i = 1; i <= 3; i++) {
-    personalMovieDB.genre[i - 1] = prompt(`Ваш любимый жанр под номером ${i}?`);
+    personalMovieDB.genres[i - 1] = prompt(
+      `Ваш любимый жанр под номером ${i}?`
+    );
   }
 }
 
 showMyDB();
 writeYourGenres();
+
+// Callback`s
+
+function myAge(age, callback) {
+  console.log(`Мой возраст: ${age}`);
+  callback();
+}
+
+function callback() {
+  console.log("И у меня дохуя дел!");
+}
+myAge(29, callback);
 
 // Base calculator via JS functions
 
@@ -333,3 +397,170 @@ writeYourGenres();
 //   return;
 // }
 // textSplitAndTransform(testText);
+
+
+// const arr = [3, 5, 8, 16, 20, 23, 50];
+// const result = [];
+
+// function firstTask() {
+//   for (let i = 0; i < arr.length; i++) {
+//     result[i] = arr[i];
+//   }
+
+//   return result;
+// }
+
+// firstTask();
+
+// console.log(result);
+
+// const data = [5, 10, 'Shopping', 20, 'Homework'];
+
+// function secondTask() {
+//   // Пишем решение вот тут
+//   for (let i = 0; i < data.length; i++) {
+//     if (typeof(data[i]) === "number") {
+//       data[i] *= 2;
+//     } else if (typeof(data[i] === 'string')) {
+//       data[i] += " - done";
+//     }
+//   } 
+//   // Не трогаем
+//   return data;
+// }
+
+secondTask();
+
+console.log(data);
+
+
+const data = [5, 10, 'Shopping', 20, 'Homework'];
+const result = [];
+
+// function thirdTask() {
+//   let incr = 0;
+//   // Пишем решение вот тут
+//   for (let i = data.length - 1; i >= 0 ; i-- ) {
+//     result[incr] = data[i];
+//     incr++;
+//   }
+//   // Не трогаем
+//   return result;
+// }
+
+function thirdTask () {
+  for (let i = 1; i <= data.length; i++) {
+    result[i - 1] = data[data.length - i] 
+  }
+  return result;
+}
+
+thirdTask();
+
+console.log(result);
+
+// const lines = 5;
+// let myResult = '';
+
+// for (let i = 0; i <= lines; i++) {
+//   for (let j = 0; j < i; j++) {
+//     myResult += "*";
+//     }
+//   myResult += '\n';
+// }
+
+// console.log(myResult);
+
+
+const objectOne = {
+  type: "Object",
+  size: 24,
+  menu: {
+    overview: 2,
+    location: 3,
+    style: 4
+  }
+} 
+
+let { overview, location, style} = objectOne.menu;
+
+// console.log(overview, location, style);
+
+console.log(objectOne ["menu"]["location"]);
+
+console.log(objectOne);
+
+// let event = "Action";
+
+function primaryFunction (event, callback) {
+  console.log(`Случилось событие - ${event}`);
+  callback();
+}
+
+function callback () {
+  console.log("TRATATA");
+}
+
+primaryFunction("Action", callback);
+
+
+const array = [];
+
+
+for (let i = 0; i <= 20; i++) { 
+  array.push(i);
+  console.log(array);
+}
+
+let arr = [0, 0, 1, 1];
+
+
+// for (let index of arr) {
+//   console.log(index);
+// }
+
+arr.forEach(function (value, i, arr) {
+  console.log(`${i}:имеет значение ${value} в массиве ${arr}`);
+})
+
+let primaryArray = [0, 1];
+
+// primaryArray.push(3);
+
+// console.log(primaryArray[2]);
+
+
+
+// function getArrayUpdate (array) {
+//   for (let i = 0; i <= 5; i++) {
+//     primaryArray.push(i);
+//   }
+//   return primaryArray;
+// }
+
+// getArrayUpdate(primaryArray);
+
+// console.log(primaryArray);
+
+// let ordinaryArray = [0, 1, 5, 10];
+// let arraySumm;
+
+// for (let i = 0; i < ordinaryArray.length; i++) {
+//   arraySumm =+ ordinaryArray[i];
+// }
+
+// console.log(arraySumm);
+
+// let multiplier = prompt("Введите множитель.", "");
+const numberToMultiply = 3;
+
+for (let  i = 1;  i <= 10; i ++) {
+  const outputValue = multiplier * i;
+  console.log(`${multiplier} * ${i} = ${outputValue} `);
+}
+
+const arrayToBeReversed = [1, 2, 3, 4, 5];
+
+for (let i = 0; i < arrayToBeReversed.length; i++) {
+  
+}
