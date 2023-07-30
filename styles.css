@@ -1,6 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+* {
+    box-sizing: border-box;
+}
+
 .container {
     display: flex;
     flex-direction: column;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 10px;
+}
+.button-body {
+    background-color: blueviolet;
+    min-width: 400px;
+    min-height: 150px;
+    display: inline-flex;
+    border-radius: 80px;
+    border: 6px solid gray;
+    position: relative;
+}
+
+.button-checkbox {
+    display: inline-flex;
+    align-self: center;
+    width: 100px;
+    height: 100px;
+    background-color: #F5E419;
+    position: absolute;
+    border-radius: 80px;
+    border: 6px solid gray;
+    left: 10px;
+}
+
+.button-checkbox.active {
+    background-color: red;
+    left: 280px;
 }

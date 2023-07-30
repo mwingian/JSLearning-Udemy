@@ -1,43 +1,5 @@
 "use strict";
 
-let numberOfFilms;
-
-initiate();
-
-function initiate() {
-  numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
-  while (numberOfFilms == "" || numberOfFilms == null || isNaN(numberOfFilms)) {
-    numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
-  }
-}
-
-const personalMovieDB = {
-  count: numberOfFilms,
-  movies: {},
-  actors: {},
-  genres: [],
-  privat: false,
-};
-
-for (let i = 0; i < 2; i++) {
-  let a = prompt("Один из последних просмотренных фильмов?", "").trim(),
-    b = +prompt("На сколько оцените его?", "");
-  if (a != null && b != null && a != "" && b != "" && a.length < 50) {
-    personalMovieDB.movies[a] = b;
-  } else {
-    console.log("Error");
-    i--;
-  }
-}
-
-function showMyDB() {
-  if (personalMovieDB.privat == false) {
-    console.log(personalMovieDB);
-  } else {
-    console.log("Data base is privat!");
-  }
-}
-
 const obj = {
   name: "Serhii",
   surname: "Zasiienko",
@@ -64,7 +26,6 @@ const calculus = {
 
 console.log(calculus.decr(a,b));
 
-// delete obj.skills.languages;
 
 let count = 0;
 let subCount = 0;
@@ -559,8 +520,152 @@ for (let  i = 1;  i <= 10; i ++) {
   console.log(`${multiplier} * ${i} = ${outputValue} `);
 }
 
-const arrayToBeReversed = [1, 2, 3, 4, 5];
+const randomObject = { 
+  name: 'Sergei',
+  age: 29,
+  isLearningProgramming: true,
+  etnicity: {
+    colorSkin: 'white',
+    eyeColor: 'gray-blue',
+    hairColor: 'brown'
+  }
+};
 
-for (let i = 0; i < arrayToBeReversed.length; i++) {
-  
+// for (let value in randomObject) {
+//   console.log(`The value ${value} equals ${randomObject[value]}!`);
+// }
+
+// Написать цикл для удаления определенных свойств Объекта
+
+let objectKeys = Object.keys(randomObject);
+let newArrayObject = objectKeys.push('heights');
+
+// console.log(objectKeys);
+console.log(newArrayObject);
+
+const Mercedes = {
+  electrik: {
+    SUV: {
+      MercedesAMGEQESUV: {
+        title: 'Mercedes-AMG EQE SUV',
+        prise: 534363,
+        hp: 505
+      }
+    },
+    limousine: {
+      MercedesAMGEQE: {
+        title: 'Mercedes-AMG EQE',
+        prise: 490099,
+        hp: 460
+      }
+    }
+  },
+  hybrid: {
+    sedan: {},
+    coupe: {},
+    combi: {},
+    hatchback: {}
+  },
+  CE: {
+    sedan: {},
+    coupe: {},
+    combi: {},
+    hatchback: {}
+  }
 }
+
+const {SUV, limousine} = Mercedes.electrik;
+
+console.log(SUV);
+console.log(limousine);
+
+const arrayOne = [1, 2, 3, 4, 5];
+
+// for (let index of arrayOne) {
+//   console.log(`Element with ID ${index} equals ${arrayOne[index]}!`);
+// }
+
+// Element with ID 5 equals undefined!
+
+for (let index of arrayOne) {
+  console.log(`Element with ID ${arrayOne.indexOf(index)} equals ${index}`)
+}
+
+
+
+// arrayOne.pop();
+// arrayOne.push(6)
+// console.log(arrayOne);
+
+// for (let i = 0; i < arrayOne.length; i++) {
+//   console.log(`Елемент массива с индексом ${i} равен ${arrayOne[i]}!`);
+// }
+
+// const superArray = ['A', 12, true, 131, 1313, 'Blet'];
+
+// let generatedArray = [1, 2];
+
+// for (i = 0; i < 11; i++) {
+//   generatedArray.push(i);
+//   return generatedArray;
+// }
+
+// console.log(generatedArray);
+
+const testArray = ['1', 1, 2];
+// const newTestArray = testArray.push(3);
+
+
+// for (let i = 0; i < testArray.length; i++) {
+//   console.log(`The value ${testArray[i]} has index of ${i}`);
+// }
+
+
+
+// for (let value of superArray) {
+//   console.log(`The item ${superArray.indexOf(value)} equals ${value}`);
+// }
+
+for (let i = 0; i < superArray.length; i++) {
+  console.log(`The element with index ${i} equals ${superArray[i]}`);
+}
+
+let arrayToObject = [1, 2, 3, 4];
+const objectFromArray = {};
+let arrayFromObject = [];
+
+for (i = 0; i < arrayToObject.length; i++) {
+  objectFromArray[i+1] = arrayToObject[i];
+}
+
+console.log(objectFromArray);
+
+for (let key in objectFromArray) {
+  console.log(`Key with ID ${key} equals ${objectFromArray[key]}`);
+}
+
+for (let value in objectFromArray) {
+  arrayFromObject[value-1] = arrayFromObject.push[value];
+}
+console.log(arrayFromObject);
+
+const terraArray = ['Value1', 'Value2'];
+
+let newArray = terraArray.unshift('Value0');
+
+console.log(terraArray);
+
+
+let itemString = '123';
+let itemNumber = parseInt(itemString);
+
+console.log(itemNumber);
+console.log(typeof(itemNumber));
+
+const stringToNumber = function(str){
+  parseInt(str);
+  return null;
+}
+
+stringToNumber('123')
+console.log();
