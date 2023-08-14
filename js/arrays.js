@@ -74,11 +74,74 @@ standardizeStrings(favoriteCities);
 
 
 const someString = 'This is some strange string';
+const someNumber = 5;
 
-function reverse(str) {
+// function reverse(str) {
+//     (typeof(str) === 'string') ? return str.split('').reverse().join('') : return ('Ошибка!');
+// }
 
+
+function reverse1(str) {
+    return (typeof(str) == 'string') ? str.split('').reverse().join('') : "Ошибка!";
 }
 
+// console.log(reverse1(someString));
+console.log(reverse1(someNumber));
 
-let stringOne = 'Text';
+
+
+console.log(reverse(someString));
+
+
+let text = 'madam';
+
+function checkPolindrom (str) {
+    let textReversed = str.split('').reverse().join('');
+    return textReversed === str;
+}
+
+console.log(checkPolindrom(text));
+
+const baseCurrencies = ['USD', 'EUR'];
+const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
+
+// function availableCurr(arr, missingCurr) {
+//         if (arr.length === 0) {
+//             return "Нет доступных валют";
+//         }
+        
+//         if(missingCurr) {
+//             let element = arr.indexOf(missingCurr);
+//             if (element > -1) {
+//                 arr.splice(element, 1);
+//             }
+//         }
+
+//         let output = 'Доступные валюты:\n';
+//         for (let index of arr) {
+//             output += index + '\n';
+//         }
+
+//         return output;
+// };
+
+function availableCurr(arr, missingCurr) {
+    let output = '';
+    (arr.length === 0) ? output = "Нет доступных валют" : output = "Доступные валюты:\n";
+    
+    arr.forEach(function (curr, index){
+        if (curr !== missingCurr) {
+            output += `${curr}\n`;
+        }
+    });
+    return output;
+}
+
+console.log(availableCurr(baseCurrencies, 'EUR'));
+
+let arrayOfValues = ['ua', 'eng', 'ru'];
+
+let indexOfValue = arrayOfValues.indexOf('ger');
+
+console.log(indexOfValue);
 
