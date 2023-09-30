@@ -145,3 +145,31 @@ let indexOfValue = arrayOfValues.indexOf('ger');
 
 console.log(indexOfValue);
 
+
+const objectForCopy = [];
+
+function isEmpty (arr) {
+    if (arr.length === 0) {
+        return 'Array is empty!'
+    } else {
+        return 'There are some elements in array!'
+    }
+}
+
+console.log(isEmpty(objectForCopy));
+
+console.log(objectForCopy);
+
+let b = 10,
+    c = 15;
+
+const alphaArray = [0, 4, b, 'text'],
+      betaArray = [125,3212, 13131, 'New text', c];
+
+alphaArray[4] = 152;
+
+const summarizeArray = [...alphaArray,...betaArray];
+
+console.log(alphaArray);
+console.log(betaArray);
+console.log(summarizeArray);

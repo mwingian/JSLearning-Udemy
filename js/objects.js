@@ -273,3 +273,96 @@ for(key in objectino) {
         console.log(`Vale ${key} equals ${objectino[key]}`);
     }
 };
+
+
+const protoObject = {
+    a: 15,
+    b: 'Proto'
+}
+
+protoObject.getString = function () {
+    return this.a + this.b;
+};
+
+
+console.log(protoObject.getString());
+
+const firstObject = {
+    name: 'No name',
+    age: 25,
+    isMarried: false
+};
+
+function getObjectCopy (object) {
+    let objCopy = {};
+    for (let value in object) {
+        objCopy[value] = object[value];
+    };
+    return objCopy;
+};
+
+
+let alterredObject = getObjectCopy(firstObject);
+console.log(alterredObject);
+
+const newObject = {};
+const objectAlign = Object.assign(firstObject, newObject);
+
+console.log(objectAlign);
+
+const layeredObject = {
+    objectOne: {
+        a: 15,
+        b: 12,
+        objectTwo: {
+            c: 13,
+            d: 14,
+            objectThree: {
+                e: 'type of one',
+                objectFour: {
+                    isItGonnaCrush: true
+                }
+            }
+        }
+    }
+}
+
+
+let newObjectForm = {...layeredObject};
+
+console.log(newObjectForm);
+
+const layeredObjectCopy = Object.assign ({}, layeredObject);
+
+console.log(layeredObjectCopy);
+
+// Написать функцию для проверки объекта на то, пустой он или нет isEmpty();
+const emptyObj = {};
+
+function isEmpty (obj) {
+    if (obj.length === 0) {
+        return 'Empty!'
+    } else {
+        return 'Not empty!'
+    }
+};
+
+console.log(isEmpty(emptyObj));
+
+
+const primaryObj = {
+    a: 15,
+    b: 14,
+    c: 13
+};
+
+const secondaryObj = {
+    a: 11,
+    b: 10,
+    c: 9
+};
+
+
+const objectAdd = {...primaryObj,...secondaryObj};
+
+console.log(objectAdd);

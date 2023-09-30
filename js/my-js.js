@@ -21,8 +21,18 @@ const calculus = {
     },
   decr: function (a, b) {
       return a - b;
-    }
+    },
+  divide: function (a, b) {
+    return a / b;
+  },
+  multiply: function (a, b) {
+    return a * b;
+  }
 }
+
+
+console.log(calculus.decr(10,5));
+console.log(calculus.multiply(11, 11));
 
 console.log(calculus.decr(a,b));
 

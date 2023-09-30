@@ -74,3 +74,24 @@ console.log(carBodyTypeTwo);
 console.log(engineTypeTwo);
 console.log(models);
 console.log(engines);
+
+
+let auto = {
+    HP: 1000,
+    color: "white"
+};
+
+let citroen = {
+    HP: 120,
+};
+
+// Deprecated
+// citroen.__proto__ = auto;
+
+Object.setPrototypeOf(citroen, auto);
+
+let renault = Object.create(auto);
+
+
+console.log(citroen.color);
+console.log(renault.color);
